@@ -128,7 +128,7 @@ export default {
       hasMoreItems: true,
       sortOption: 'PRICE_FROM_LOW',
       itemsPerPage: 'PER_PAGE_36', 
-      selectedFilters: {}, // Selected filters for dynamic filtering
+      selectedFilters: {}, // Selected filters 
       filtersBlocks: [] // Array to store filter blocks and facets
     }
   },
