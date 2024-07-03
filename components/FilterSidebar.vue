@@ -63,6 +63,8 @@ export default {
 <style scoped>
 .sideBar {
   background-color: rgb(27, 3, 121);
+  border-right: 0.25rem solid white;
+  margin-right: 1rem;
 }
 
 .search{

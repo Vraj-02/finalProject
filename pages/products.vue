@@ -1,6 +1,7 @@
 <template>
-  <div class="container mx-auto p-4 flex">
-
+ <div>
+  <TopBar/>
+  <div class=" listing mx-auto p-4 flex">
         
     <FilterSidebar
       :filtersBlocks="filtersBlocks"
@@ -43,6 +44,7 @@
     />
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -51,13 +53,15 @@ import FilterSidebar from '../components/FilterSidebar.vue'
 import AppliedFilters from '../components/AppliedFilters.vue'
 import SortingPagination from '../components/SortingPagination.vue'
 import ProductListing from '../components/ProductListing.vue'
+import TopBar from '../components/TopBar.vue'
 
 export default {
   components: {
     FilterSidebar,
     AppliedFilters,
     SortingPagination,
-    ProductListing
+    ProductListing,
+    TopBar
   },
   data() {
     return {
@@ -290,6 +294,9 @@ body {
   margin: 0%;
 }
 .container {
+  background-color: rgb(27, 3, 121);
+}
+.listing {
   background-color: rgb(27, 3, 121);
 }
 </style>
