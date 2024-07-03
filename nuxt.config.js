@@ -58,6 +58,16 @@ export default {
     }
   },
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'products',
+        path: '/products/:category+',
+        component: resolve(__dirname, 'pages/products.vue')
+      });
+    }
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
