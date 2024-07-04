@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span class="text-white">Items: {{ itemsCount }}</span>
     <div v-if="loading" class="text-center text-white  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <!-- Loading... -->
       <SkeletonLoader v-for="n in 6" :key="n" />
@@ -33,7 +34,6 @@
               </div>
             </template>
             
-            <!-- <ProductTags :item="item" /> -->
           </div>
           <h2 class="text-xl font-semibold">{{ item.name }}</h2>
           <p class="text-gray-700">{{ item.brand.name }}</p>
@@ -73,7 +73,8 @@ export default {
     error: Object,
     hasMoreItems: Boolean,
     loadingMore: Boolean,
-    loadMore: Function
+    loadMore: Function,
+    itemsCount: Array
   },
   data() {
     return {

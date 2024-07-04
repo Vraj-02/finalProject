@@ -35,6 +35,7 @@
      
       <ProductListing
       :items="items"
+      :itemsCount="itemsCount"
       :loading="loading"
       :error="error"
       :hasMoreItems="hasMoreItems"
@@ -65,6 +66,7 @@ export default {
   },
   data() {
     return {
+      itemsCount: [],
       items: [],
       loading: true,
       loadingMore: false,
@@ -110,7 +112,6 @@ export default {
         const slugs = String(this.categorySlugs)
         this.currentCategory = slugs
         
-
         const { data } = await client.query({
           query: gql`
             query($slugs: String!,$page: Int!, $sortBy: catalogSearchFilterSort!, $perPage: catalogSearchResultItemPerPage!, $filters: [catalogSearchFacetInput!]) {
@@ -195,6 +196,7 @@ export default {
           this.filtersBlocks = data.listing.listingCategory.filtersBlock || []
           this.totalPages = data.listing.listingCategory.pages
           this.hasMoreItems = this.currentPage < this.totalPages
+          this.itemsCount = data.listing.listingCategory.itemsCount
         } else {
           this.error = new Error('Invalid data structure')
         }
