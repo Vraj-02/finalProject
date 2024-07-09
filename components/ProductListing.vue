@@ -12,6 +12,7 @@
           v-for="item in items"
           :key="item.id"
           :item="item"
+          :dynamicItem="item"
         />
       </div>
       <div v-if="hasMoreItems" class="mt-4 flex justify-center">

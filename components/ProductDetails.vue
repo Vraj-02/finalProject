@@ -21,7 +21,7 @@
           </div>
         </template>
         <DynamicAttributes
-          :dynamicAttributes="item.dynamicAttribute"
+          :dynamicAttributes="dynamicItem.dynamicAttribute"
           @hoverProduct="handleThumbnailHover"
         />
       </div>
@@ -51,8 +51,10 @@
     },
     props: {
       item: Object,
+      dynamicItem: Object
     },
     data() {
+       
       return {
         hoveredItem: null,
       }
