@@ -6,7 +6,7 @@
       <nav class="nav-links flex space-x-4">
         <a href="#" class="hover:underline">Account</a>
         <a href="#" class="hover:underline">Wishlist</a>
-        <a href="#" class="hover:underline">Cart</a>
+        <a href="#" class="hover:underline cartLogo">🛒</a>
       </nav>
     </div>
   </template>
@@ -21,6 +21,9 @@
   .top-bar {
     background-color: rgb(27, 3, 121); /* Blue color */
     border-bottom: 0.5rem solid white;
+  }
+  .cartLogo{
+    font-size: larger;
   }
   </style>
   

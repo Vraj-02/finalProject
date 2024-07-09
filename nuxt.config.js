@@ -21,8 +21,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [ "~/plugins/apollo-client.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -47,7 +46,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'https://www.sandbox9.1sb.pp.ua/graphql/1/listing',
+        httpEndpoint: 'https://www.sandbox9.1sb.pp.ua/graphql/1',
         httpLinkOptions: {
           headers: {
             Authorization: `Basic ${Buffer.from('user:ovietiiwai4Ooyi').toString('base64')}` 
