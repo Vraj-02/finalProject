@@ -50,10 +50,10 @@
  
  <script>
  import gql from 'graphql-tag'
- import FilterSidebar from '../components/FilterSidebar.vue'
- import AppliedFilters from '../components/AppliedFilters.vue'
- import SortingPagination from '../components/SortingPagination.vue'
- import ProductListing from '../components/ProductListing.vue'
+ import FilterSidebar from '../components/ProductListing/FilterSidebar.vue'
+ import AppliedFilters from '../components/ProductListing/AppliedFilters.vue'
+ import SortingPagination from '../components/ProductListing/SortingPagination.vue'
+ import ProductListing from '../components/ProductListing/ProductListing.vue'
  import TopBar from '../components/TopBar.vue'
  
  export default {
