@@ -140,6 +140,7 @@
                      id
                      webId
                      name
+                     slug
                      brand {
                        name
                      }

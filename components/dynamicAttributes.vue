@@ -9,11 +9,37 @@
     >
       <img :src="item.image" :alt="item.image" class="thumbnail-image" />
     </div>
+  </div>
 
-
-    </div>
+  <div class="thumbnail-container mt-2 flex space-x-2" v-else-if="dynamicAttributes?.type == 'SWATCH_THUMBNAIL'">   
+    <div
+      v-for="(item, index) of dynamicAttributes.items"
+      :key="index"
+      class="thumbnail-item"
+      @mouseenter="hoverProduct(item.webId)"
+      >
+      <img :src="item.image" :alt="item.image" class="thumbnail-image" />
+   </div>
+  </div>
+ 
 
     <div v-else-if="dynamicAttributes?.type == 'TEXT'">{{dynamicAttributes.count}} {{dynamicAttributes.label}}</div>
+
+    <div v-else-if="dynamicAttributes?.type == 'LAYOUT_TEXT'">{{dynamicAttributes.count}} {{dynamicAttributes.label}}</div>
+
+    <div class="thumbnail-container mt-2 flex space-x-2" v-else-if="dynamicAttributes?.type == 'LAYOUTIMAGE'">   
+      <div
+        v-for="(item, index) of dynamicAttributes.items"
+        :key="index"
+        class="thumbnail-item"
+        @mouseenter="hoverProduct(item.webId)"
+        >
+        <img :src="item.image" :alt="item.image" class="thumbnail-image" />
+     </div>
+    </div>
+
+
+
 </template>
   
   <script>

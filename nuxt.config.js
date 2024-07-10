@@ -37,7 +37,7 @@ export default {
     '@nuxtjs/axios'
   ],
   axios: {
-    baseURL: 'https://www.sandbox9.1sb.pp.ua/graphql',
+    baseURL: 'https://www.sandbox9.1sb.pp.ua/graphql/1',
     auth: {
       username: 'user',
       password: 'ovietiiwai4Ooyi'
@@ -59,11 +59,18 @@ export default {
 
   router: {
     extendRoutes(routes, resolve) {
-      routes.push({
+      routes.push(
+        {
         name: 'products',
         path: '/products/:category+',
         component: resolve(__dirname, 'pages/products.vue')
-      });
+        },
+        {
+          name: 'product-details',
+          path: '/product/:slug',
+          component: resolve(__dirname, 'pages/product/_slug.vue')
+        }
+      );
     }
   },
 

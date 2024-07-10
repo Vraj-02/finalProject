@@ -96,6 +96,9 @@
     background-color: rgb(255, 255, 255);
     position: relative;
   }
+  .product-card {
+        cursor: pointer;
+  }
   .product-card img {
     max-width: 100%;
     height: auto;

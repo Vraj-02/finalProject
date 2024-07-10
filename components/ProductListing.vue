@@ -7,12 +7,13 @@
     </div>
     <div v-else-if="error" class="text-center text-red-500">{{ error.message }}</div>
     <div v-else>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" >
         <ProductDetails
           v-for="item in items"
           :key="item.id"
           :item="item"
-          :dynamicItem="item"
+          :dynamicItem="item" 
+          @click.native="goToProductDetails(item.slug)"      
         />
       </div>
       <div v-if="hasMoreItems" class="mt-4 flex justify-center">
@@ -41,6 +42,12 @@ export default {
     loadingMore: Boolean,
     loadMore: Function,
     itemsCount: Number
+  },
+  methods: {
+    goToProductDetails(slug) {
+     console.log('Navigating to product with slug:', slug); 
+      this.$router.push({ name: 'product-details', params: { slug } });
+    }
   }
 }
 </script>
