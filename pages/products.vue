@@ -102,13 +102,13 @@
        }
        return item.images?.mainImage?.src || ''
      },
-     // /living/living-room-furniture/living-room-sets
+     
      async fetchData(page = 1, append = false) {
        this.loadingMore = true
        try {
          const client = this.$apollo.provider.defaultClient
          const filters = this.buildFiltersArray()
-         console.log(String(this.categorySlugs))
+        //  console.log(String(this.categorySlugs))
          const slugs = String(this.categorySlugs)
          this.currentCategory = slugs
          
