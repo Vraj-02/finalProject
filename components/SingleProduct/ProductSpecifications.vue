@@ -15,7 +15,7 @@
   <template>
     <div>
       <!-- <h2 class="text-xl font-bold mb-2">Specifications</h2> -->
-      <button @click="toggleSpecifications" class="text-blue-500 underline mb-2">
+      <button @click="toggleSpecifications" class=" underline mb-2">
         {{ showSpecifications ? 'Hide Specifications' : 'Show Specifications' }}
       </button>
       <div v-if="showSpecifications" class="overflow-x-auto">

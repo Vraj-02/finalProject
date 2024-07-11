@@ -216,6 +216,31 @@ export default {
                       }
                       gtin
                       isUseInGoogleFeed
+                  }
+                  shippingAndReturn {
+                    shipping {
+                      title
+                      subtitle
+                    }
+                    return {
+                      title
+                      subtitle
+                      subtitleSlug
+                      isMattress
+                      url
+                      merchantReturnDays
+                    }
+                    popupType
+                    urlShippingDetails
+                    transitTime {
+                      minValue
+                      maxValue
+                    }
+                  }
+                  relatedSearch {
+                    link
+                    title
+                    internalRoute
                   }  
                 }
               }

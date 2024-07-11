@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button @click="toggleWeightAndDim" class="text-blue-500 underline">
+      <button @click="toggleWeightAndDim" class="underline">
         {{ showWeightAndDim ? 'Hide Weight and Dimensions' : 'Show Weight and Dimensions' }}
       </button>
       <div v-if="showWeightAndDim" class="mt-2">

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <button @click="toggleDescription" class="text-blue-500 underline desc">
+      <button @click="toggleDescription" class=" underline desc">
         {{ showDescription ? 'Hide Details & Overview' : 'Show Details & Overview' }}
       </button>
       <div v-if="showDescription" class="mt-2">
