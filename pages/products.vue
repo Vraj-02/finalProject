@@ -237,6 +237,7 @@
                             rating
                             number
                           }
+                            
                         }
                       }  
                    }

@@ -14,6 +14,11 @@
       <div class="w-full md:w-1/2 pl-0 md:pl-8 mt-4 md:mt-0 rightHalf">
         <ProductNameBrand :product="product" />
         <ProductPrice :product="product" />
+        <shippingAdditional :additional="product.additional"/>
+        <ProductDescription :product="product" />
+        <ProductWeightAndDimensions :product="product" />
+        <ProductSpecifications :product="product" />
+        
       </div>
     </div>
   </div>
@@ -26,13 +31,21 @@ import TopBar from '@/components/TopBar.vue';
 import ImageGallery from '@/components/SingleProduct/ImageGallery.vue';
 import ProductNameBrand from '@/components/SingleProduct/ProductNameBrand.vue';
 import ProductPrice from '@/components/SingleProduct/ProductPrice.vue';
+import ProductDescription from '@/components/singleproduct/ProductDescription.vue';
+import ProductWeightAndDimensions from '@/components/singleproduct/ProductWeightAndDimensions.vue';
+import shippingAdditional from '@/components/singleproduct/shippingAdditional.vue';
+import ProductSpecifications from '@/components/singleproduct/ProductSpecifications.vue';
 
 export default {
   components: {
     TopBar,
     ImageGallery,
     ProductNameBrand,
-    ProductPrice
+    ProductPrice,
+    ProductDescription,
+    ProductWeightAndDimensions,
+    shippingAdditional,
+    ProductSpecifications,
   },
   data() {
     return {
@@ -160,6 +173,50 @@ export default {
                       src
                     }
                   }
+                  additional {
+                      showAffirm
+                      showKatapult
+                      outOfStock
+                      selectionId
+                      optionId
+                      mattressDesc {
+                        comfortLevel
+                        thickness
+                        type
+                        top
+                      }
+                      desc
+                      showDesc
+                      specs {
+                        name
+                        value
+                        url
+                      }
+                      weightAndDim
+                      delivery {
+                        type
+                        method
+                        date
+                        isFreeShipping
+                      }
+                      canDisplayMattress
+                      canDisplayMattressPopup
+                      buildYourOwnEnabled
+                      visibility
+                      shopMore {
+                        key
+                        title
+                        url
+                      }
+                      dimensions {
+                        height
+                        width
+                        weight
+                        depth
+                      }
+                      gtin
+                      isUseInGoogleFeed
+                  }  
                 }
               }
             }
@@ -190,5 +247,7 @@ export default {
 <style scoped>
 .rightHalf{
   padding-left: 4rem;
+  line-height: 2.5;
 }
+
 </style>
