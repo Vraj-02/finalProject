@@ -5,7 +5,8 @@
     
     <div v-if="loading" class="text-center text-gray-600">Loading...</div>
     <div v-else-if="error" class="text-center text-red-600">{{ error.message }}</div>
-    <div v-else class="flex flex-col md:flex-row">
+    <div v-else >
+      <div class="flex flex-col md:flex-row">
       <!-- Left half for images -->
       <div class="w-full md:w-1/2">
         <ImageGallery :product="product" :currentImage="currentImage" @update-image="currentImage = $event" />
@@ -18,9 +19,13 @@
         <ProductDescription :product="product" />
         <ProductWeightAndDimensions :product="product" />
         <ProductSpecifications :product="product" />
-        
+        <!-- <Reviews :product/> -->     
       </div>
     </div>
+    <ProductSlug :product="product" />
+    <!-- <Producttest :product="product"/> -->
+
+  </div>
   </div>
 </div>
 </template>
@@ -36,8 +41,14 @@ import ProductWeightAndDimensions from '@/components/singleproduct/ProductWeight
 import shippingAdditional from '@/components/singleproduct/shippingAdditional.vue';
 import ProductSpecifications from '@/components/singleproduct/ProductSpecifications.vue';
 
+import Producttest from '@/components/singleproduct/productstest.vue';
+
+import { mapActions } from "vuex";
+import ProductSlug from "@/components/singleproduct/product-slug/productslug.vue";
+
 export default {
   components: {
+    Producttest,
     TopBar,
     ImageGallery,
     ProductNameBrand,
@@ -46,6 +57,7 @@ export default {
     ProductWeightAndDimensions,
     shippingAdditional,
     ProductSpecifications,
+    ProductSlug
   },
   data() {
     return {
@@ -53,9 +65,22 @@ export default {
       error: null,
       product: null,
       currentImage: '',
+      slug: this.$route.params.slug,
     };
   },
+  created() {
+    this.fetchReviewRatingData(this.slug);
+    this.fetchShippingReturnData(this.slug);
+    this.fetchReviewItemData(this.slug);
+  },
   methods: {
+    ...mapActions([
+      "fetchShippingReturnData",
+      "fetchReviewRatingData",
+      "fetchReviewItemData",
+    ]),
+
+
     async fetchData() {
       this.loading = true;
       try {
@@ -253,6 +278,7 @@ export default {
 
         this.product = data.products.productBySlug;
         console.log(this.product)
+        console.log(this.product.shippingAndReturn )
         if (this.product.gallery.productImages.length > 0) {
           this.currentImage = this.product.gallery.productImages[0].src;
         }
