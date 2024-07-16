@@ -45,6 +45,15 @@
               <a :href="review.productLink">{{
                 review.product && review.product.name
               }}</a>
+              <div class="review-images">
+                <img
+                  v-for="image in review.images"
+                  :src="image.src"
+                  
+                  class="review-image"
+                  :key="image.src"
+                />
+              </div>
             </div>
           </div>
 
@@ -169,7 +178,7 @@ export default {
 }
 
 .review-list {
-  background-color: lightblue;
+  background-color: rgb(255, 255, 255);
   margin-top: 20px;
 }
 
@@ -244,5 +253,26 @@ export default {
 .helpful-button:hover {
   background-color: #3f51b5;
   color: #fff;
+}
+
+.show-more-reviews{
+  cursor: pointer;
+}
+
+.show-more-reviews:hover{
+  text-decoration: underline;
+}
+
+.review-images {
+  display: flex;
+  margin-top: 10px;
+}
+
+.review-image {
+  width: 80px; /* Adjust the width as needed */
+  height: 80px; /* Adjust the height as needed */
+  object-fit: cover;
+  margin-right: 5px;
+  border-radius: 5px;
 }
 </style>

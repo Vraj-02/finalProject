@@ -11,7 +11,7 @@
       Loading for reviewItem...
     </template>
     <template v-else>
-      <ReviewItem :record="reviewItem?.review?.items ?? []" />
+      <ReviewItem :record="reviewItem?.review?.items ?? { items: [] }" />
     </template>
   </div>
 </template>

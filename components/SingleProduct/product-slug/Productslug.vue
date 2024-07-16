@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
-    <!-- <ReviewRating /> -->
+    <ReviewRating />
+    <hr>
     <ShippingReturns
       :shippingAndReturn="product.shippingAndReturn"
       :relatedSearch="product.relatedSearch"

@@ -1,32 +1,35 @@
 import gql from "graphql-tag";
-import {
-  REVIEW_ITEMS_FRAGEMENT,
-  REVIEW_RATING_FRAGEMENT,
-  SHIPPING_RETURN_FRAGMENT,
-} from "../fragments/productInterface";
-
-export const GET_SHIPPING_RETURN_LIST = gql`
-  query getShippingList($slug: String!) {
-    products {
-      productBySlug(slug: $slug) {
-        ...ShippingAndReturnFrag
-        __typename
-      }
-    }
-  }
-  ${SHIPPING_RETURN_FRAGMENT}
-`;
 
 export const GET_REVIEW_RATING_LIST = gql`
   query getReviewRatingList($slug: String!) {
     products {
       productBySlug(slug: $slug) {
-        ...ReviewRatingFrag
-        __typename
+        review {
+      images {
+        style
+        alt
+        src
+        classes
+        sources {
+          media
+          srcset
+        }
+        
+      }
+      rating {
+        number
+        rating
+        votes {
+          voteName
+          voteCount
+          votePercent
+        }
+      }
+        
+    }
       }
     }
   }
-  ${REVIEW_RATING_FRAGEMENT}
 `;
 
 export const GET_REVIEW_ITEMS_LIST = gql`
@@ -39,10 +42,52 @@ export const GET_REVIEW_ITEMS_LIST = gql`
   ) {
     products {
       productBySlug(slug: $slug) {
-        ...ReviewItemFrag
-        __typename
+        review {
+      items(
+      pageId: $page
+      sortMode: $sortMode
+      rating: $rating
+      searchRequest: $searchRequest
+      isJsonLD: false
+    ) {
+      totalQty
+      items {
+        id
+        author {
+          name
+        }
+        address {
+          city
+          regionCode
+        }
+        product {
+          name
+          url
+        }
+        text
+        date
+        summary
+        rating
+        isVerifiedPurchase
+        helpfulCount
+        images {
+          style
+          alt
+          src
+          classes
+          sources {
+            media
+            srcset
+            
+          }
+        }
       }
     }
   }
-  ${REVIEW_ITEMS_FRAGEMENT}
+    }
+
+      }
+    }
+  
+  
 `;
