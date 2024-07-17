@@ -1,27 +1,14 @@
 <template>
-    <div class="main-container">
-      <!-- <ReviewRating /> -->
-      <!-- <ShippingReturns
-        :shippingAndReturn="product.shippingAndReturn"
-        :relatedSearch="product.relatedSearch"
-        :delivery="product.additional.delivery"
-      /> -->
+    <div class="main-container">   
     </div>
   </template>
   
   <script>
-//   import ShippingReturns from "./shipping-return/ShippingReturns.vue";
-//   import ReviewRating from "./review-rating/ReviewRating.vue";
-  
   export default {
     name: "ProductSlug",
     props: {
       product: Object 
       },
-    // components: {
-    //   ShippingReturns,
-    //   ReviewRating,
-    // },
     mounted() {
         console.log("hello",this.product).
       console.log("shippingAndReturn index:", this.product.shippingAndReturn);

@@ -1,9 +1,7 @@
 <template>
   <div class="container">
     <div class="shipping-returns">
-      <!-- <template v-if="shippingReturnLoading">
-        Loading for shippingReturn Section...
-      </template> -->
+      
       <template >
         <Shipping
           :record="shippingAndReturn.shipping"
@@ -25,7 +23,6 @@ import Shipping from "./Shipping.vue";
 import Returns from "./Returns.vue";
 import RelatedSearch from "./RelatedSearch.vue";
 
-import { mapState } from "vuex";
 
 export default {
   name: "ShippingReturns",
@@ -44,12 +41,7 @@ export default {
     console.log("relatedSearch:", this.relatedSearch);
     console.log("delivery:", this.delivery);
   }
-  // computed: {
-  //   ...mapState({
-  //     shippingReturn: (state) => state.shippingReturn.data,
-  //     shippingReturnLoading: (state) => state.shippingReturn.loading,
-  //   }),
-  // },
+
 };
 </script>
 

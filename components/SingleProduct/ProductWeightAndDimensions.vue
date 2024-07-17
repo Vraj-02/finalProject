@@ -22,7 +22,7 @@
     computed: {
       formattedWeightAndDim() {
         let weightAndDimHtml = this.product.additional.weightAndDim;
-      // Wrap the table rows with <table> and add <hr> between rows
+      
         weightAndDimHtml = weightAndDimHtml.replace(/<\/tr>/g, '</tr><hr>');
         return `<table>${weightAndDimHtml}</table>`;
       }

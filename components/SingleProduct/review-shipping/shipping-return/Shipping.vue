@@ -5,10 +5,10 @@
       <strong>Ships by {{ delivery }}</strong>
     </p>
     <div class="delivery-options">
-      <h3>Delivery Options</h3>
+      <h2><strong>Delivery Options</strong></h2>
 
       <div v-for="(item, index) of record" :key="index">
-        <div>{{ item.title }}</div>
+        <div class="font-bold">{{ item.title }}</div>
         <div>{{ item.subtitle }}</div>
       </div>
 

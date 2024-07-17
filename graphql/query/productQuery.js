@@ -5,28 +5,26 @@ export const GET_REVIEW_RATING_LIST = gql`
     products {
       productBySlug(slug: $slug) {
         review {
-      images {
-        style
-        alt
-        src
-        classes
-        sources {
-          media
-          srcset
+          images {
+            style
+            alt
+            src
+            classes
+            sources {
+              media
+              srcset
+            }            
+          }
+          rating {
+            number
+            rating
+            votes {
+              voteName
+              voteCount
+              votePercent
+            }
+          }            
         }
-        
-      }
-      rating {
-        number
-        rating
-        votes {
-          voteName
-          voteCount
-          votePercent
-        }
-      }
-        
-    }
       }
     }
   }
@@ -43,49 +41,47 @@ export const GET_REVIEW_ITEMS_LIST = gql`
     products {
       productBySlug(slug: $slug) {
         review {
-      items(
-      pageId: $page
-      sortMode: $sortMode
-      rating: $rating
-      searchRequest: $searchRequest
-      isJsonLD: false
-    ) {
-      totalQty
-      items {
-        id
-        author {
-          name
-        }
-        address {
-          city
-          regionCode
-        }
-        product {
-          name
-          url
-        }
-        text
-        date
-        summary
-        rating
-        isVerifiedPurchase
-        helpfulCount
-        images {
-          style
-          alt
-          src
-          classes
-          sources {
-            media
-            srcset
-            
+            items(
+            pageId: $page
+            sortMode: $sortMode
+            rating: $rating
+            searchRequest: $searchRequest
+            isJsonLD: false
+          ) {
+            totalQty
+            items {
+              id
+              author {
+                name
+              }
+              address {
+                city
+                regionCode
+              }
+              product {
+                name
+                url
+              }
+              text
+              date
+              summary
+              rating
+              isVerifiedPurchase
+              helpfulCount
+              images {
+                style
+                alt
+                src
+                classes
+                sources {
+                  media
+                  srcset  
+                }
+              }
+            }
           }
         }
       }
-    }
-  }
-    }
-
       }
     }
   

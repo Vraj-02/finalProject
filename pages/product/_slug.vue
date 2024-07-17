@@ -19,12 +19,11 @@
         <ProductDescription :product="product" />
         <ProductWeightAndDimensions :product="product" />
         <ProductSpecifications :product="product" />
-        <!-- <Reviews :product/> -->     
+        <!-- <Reviews :product/> -->    
       </div>
     </div>
     <ProductSlug :product="product" />
     <!-- <Producttest :product="product"/> -->
-
   </div>
   </div>
 </div>
@@ -41,14 +40,14 @@ import ProductWeightAndDimensions from '@/components/singleproduct/ProductWeight
 import shippingAdditional from '@/components/singleproduct/shippingAdditional.vue';
 import ProductSpecifications from '@/components/singleproduct/ProductSpecifications.vue';
 
-import Producttest from '@/components/singleproduct/productstest.vue';
+// import Producttest from '@/components/singleproduct/productstest.vue';
 
 import { mapActions } from "vuex";
-import ProductSlug from "@/components/singleproduct/product-slug/productslug.vue";
+import ProductSlug from "@/components/singleproduct/review-shipping/productslug.vue";
 
 export default {
   components: {
-    Producttest,
+    // Producttest,
     TopBar,
     ImageGallery,
     ProductNameBrand,
@@ -70,12 +69,10 @@ export default {
   },
   created() {
     this.fetchReviewRatingData(this.slug);
-    this.fetchShippingReturnData(this.slug);
     this.fetchReviewItemData(this.slug);
   },
   methods: {
     ...mapActions([
-      "fetchShippingReturnData",
       "fetchReviewRatingData",
       "fetchReviewItemData",
     ]),

@@ -1,17 +1,3 @@
-<!-- <template>
-    <div>
-        {{ product.additional.specs }}
-    </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      product: Object
-    }
-  };
-  </script> -->
-
   <template>
     <div>
       <!-- <h2 class="text-xl font-bold mb-2">Specifications</h2> -->

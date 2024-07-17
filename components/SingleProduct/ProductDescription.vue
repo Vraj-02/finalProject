@@ -16,11 +16,9 @@
     },
     computed: {
     formattedDescription() {
-      // Replace new lines with line breaks for better HTML rendering
-    //   return this.product.additional.desc.replace(/\n/g, '<br>');
+      
     let descriptionHtml = this.product.additional.desc.replace(/\n/g, '<br>');
 
-      // Convert list items to <ul> and <li> tags
       descriptionHtml = descriptionHtml.replace(/<li>/g, '<li class="list-disc">');
       descriptionHtml = `<ul>${descriptionHtml}</ul>`;
 
@@ -38,6 +36,7 @@
       }
     }
   };
+
   </script>
 
   <style>

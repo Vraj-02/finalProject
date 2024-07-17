@@ -9,8 +9,7 @@
        :handleFilterChange="handleFilterChange"
        :isSelected="isSelected"
      />
-    
-     
+        
      <div class="w-3/4">
        <h1 class="text-3xl text-center text-white font-bold mb-4 topBar">{{currentCategory}}</h1>
       
