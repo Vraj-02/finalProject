@@ -5,7 +5,13 @@
 
     <div class="tag text-white clearancetag" v-else-if="tags.primary =='Clearance'">
       Clearance 
+    </div>
+
+    <div class="tag text-white Dailydealtag" v-else-if="tags.primary =='Daily Deal'">
+      Daily deal 
   </div>
+
+
       
   </template>
   
@@ -28,7 +34,13 @@
     background-color: rgb(213, 141, 8);
     width: fit-content;
     display: inline;
+    margin: 1%;  
+}
+
+.Dailydealtag{
+    background-color: rgb(7, 20, 134);
+    width: fit-content;
+    display: inline;
     margin: 1%;
-   
 }
 </style>  

@@ -17,6 +17,7 @@
       <ClearanceQuantityTag
             :clearanceQty="product.general.price.clearanceQty"
         />
+      <p v-if="product.additional.showAffirm" class="text-blue-500" >Affirm</p>  
     </div>
   </template>
   

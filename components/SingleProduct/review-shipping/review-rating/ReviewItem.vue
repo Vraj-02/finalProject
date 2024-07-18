@@ -61,7 +61,7 @@
                   :src="image.src"
                   class="review-image"
                   :key="image.src"
-                  @click="openModal(image.src)"
+                  @click="openModal(image.src, review.images)"
                 />
               </div>
             </div>
@@ -84,7 +84,13 @@
       Sorry. We couldn’t find any results. Try checking your spelling or use more
       general terms.
     </div>
-    <ImageModal :isVisible="isModalVisible" :imageSrc="modalImageSrc" @close="closeModal" />
+    <ImageModal
+      :isVisible="isModalVisible"
+      :imageSrc="modalImageSrc"
+      :images="modalImages"
+      @close="closeModal"
+      @image-selected="changeImage"
+    />
   </div>
 </template>
 
@@ -108,6 +114,7 @@ export default {
       sortMode: this.$store.state.reviewItem.sortMode,
       isModalVisible: false,
       modalImageSrc: "",
+      modalImages: [],
     };
   },
   computed: {
@@ -138,13 +145,18 @@ export default {
       );
       this.$store.dispatch("fetchReviewItemData", this.$route.params.slug);
     },
-    openModal(imageSrc) {
+    openModal(imageSrc, images) {
       this.modalImageSrc = imageSrc;
+      this.modalImages = images;
       this.isModalVisible = true;
     },
     closeModal() {
       this.isModalVisible = false;
       this.modalImageSrc = "";
+      this.modalImages = [];
+    },
+    changeImage(imageSrc) {
+      this.modalImageSrc = imageSrc;
     },
   },
   watch: {
