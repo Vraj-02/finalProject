@@ -18,8 +18,7 @@
         <shippingAdditional :additional="product.additional"/>
         <ProductDescription :product="product" />
         <ProductWeightAndDimensions :product="product" />
-        <ProductSpecifications :product="product" />
-        <!-- <Reviews :product/> -->    
+        <ProductSpecifications :product="product" />    
       </div>
     </div>
     <ProductSlug :product="product" />

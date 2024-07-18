@@ -7,7 +7,7 @@
         class="search-bar"
         v-model="searchRequest"
       />
-      <button class="search-button" @click="fetchReviews">Search</button>
+      <button class="search-button" @click="fetchReviews"> 🔍</button>
     </div>
     <div class="review-header-flex">
       <div class="review-count">Showing {{ reviewRange }}</div>

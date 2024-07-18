@@ -2,7 +2,7 @@
     <div>
         <p>
           <span>
-            <seasonalSaleTag
+            <PrimaryTag
                 :tags="product.general.tags"
             />
           </span>  
@@ -22,14 +22,14 @@
   
   <script>
 
-  import seasonalSaleTag from "./tags/seasonalSaleTag.vue"
+  import PrimaryTag from "./tags/PrimaryTag.vue"
   
   import ClearanceQuantityTag from "./tags/clearanceQuantityTag.vue";
 
   export default {
 
     components: {
-        seasonalSaleTag,
+        PrimaryTag,
         ClearanceQuantityTag
     },
    
