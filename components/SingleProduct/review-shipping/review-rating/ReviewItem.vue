@@ -1,5 +1,15 @@
 <template>
   <div class="reviews-container">
+    <h2><strong>Customer Images</strong></h2>
+    <div class="scrollable-images">
+      <img
+        v-for="image in allImages"
+        :src="image.src"
+        :key="image.src"
+        @click="openModal(image.src)"
+        class="scrollable-image"
+      />
+    </div>
     <div class="search-sort">
       <input
         type="text"
@@ -49,9 +59,9 @@
                 <img
                   v-for="image in review.images"
                   :src="image.src"
-                  
                   class="review-image"
                   :key="image.src"
+                  @click="openModal(image.src)"
                 />
               </div>
             </div>
@@ -71,15 +81,21 @@
       </div>
     </div>
     <div v-else>
-      Sorry. We couldn’t find any results Try checking your spelling or use more
+      Sorry. We couldn’t find any results. Try checking your spelling or use more
       general terms.
     </div>
+    <ImageModal :isVisible="isModalVisible" :imageSrc="modalImageSrc" @close="closeModal" />
   </div>
 </template>
 
 <script>
+import ImageModal from "./ImageModal.vue";
+
 export default {
   name: "ReviewItem",
+  components: {
+    ImageModal,
+  },
   props: {
     record: {
       type: Object,
@@ -90,6 +106,8 @@ export default {
     return {
       searchRequest: "",
       sortMode: this.$store.state.reviewItem.sortMode,
+      isModalVisible: false,
+      modalImageSrc: "",
     };
   },
   computed: {
@@ -101,6 +119,9 @@ export default {
       const start = 1;
       const end = itemCount;
       return `${start}-${end} of ${this.record.totalQty} reviews`;
+    },
+    allImages() {
+      return this.record.items.flatMap(review => review.images);
     },
   },
   methods: {
@@ -116,6 +137,14 @@ export default {
         this.$store.state.reviewItem.page + 1
       );
       this.$store.dispatch("fetchReviewItemData", this.$route.params.slug);
+    },
+    openModal(imageSrc) {
+      this.modalImageSrc = imageSrc;
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      this.modalImageSrc = "";
     },
   },
   watch: {
@@ -141,6 +170,22 @@ export default {
 .reviews-container {
   padding: 20px;
   background-color: #fff;
+}
+
+.scrollable-images {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.scrollable-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .search-sort {
@@ -255,11 +300,11 @@ export default {
   color: #fff;
 }
 
-.show-more-reviews{
+.show-more-reviews {
   cursor: pointer;
 }
 
-.show-more-reviews:hover{
+.show-more-reviews:hover {
   text-decoration: underline;
 }
 
@@ -274,5 +319,6 @@ export default {
   object-fit: cover;
   margin-right: 5px;
   border-radius: 5px;
+  cursor: pointer;
 }
 </style>
