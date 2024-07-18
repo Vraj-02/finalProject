@@ -314,8 +314,8 @@ export default {
 }
 
 .review-image {
-  width: 80px; /* Adjust the width as needed */
-  height: 80px; /* Adjust the height as needed */
+  width: 80px; 
+  height: 80px; 
   object-fit: cover;
   margin-right: 5px;
   border-radius: 5px;
